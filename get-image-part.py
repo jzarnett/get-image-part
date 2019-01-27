@@ -38,6 +38,6 @@ if __name__ == "__main__":
     ch = logging.StreamHandler()
     ch.setLevel(logging.DEBUG)
     logger.addHandler(ch)
-    application.listen(4590)
+    application.listen(int(os.environ.get("PORT", 4590)))
     enable_pretty_logging()
     tornado.ioloop.IOLoop.instance().start()
